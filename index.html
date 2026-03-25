@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janna Tien Pham &mdash; Cloud Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="header-main">
+        <h1>Janna Tien Pham</h1>
+        <p class="tagline">Cloud &amp; Infrastructure Engineer</p>
+      </div>
+      <div class="header-contact">
+        <a href="mailto:jannaphm@gmail.com">jannaphm@gmail.com</a>
+        <span>&bull;</span>
+        <a href="https://linkedin.com/in/tien-nt-pham" target="_blank">LinkedIn</a>
+        <span>&bull;</span>
+        <a href="https://github.com/jntph" target="_blank">GitHub</a>
+        <span>&bull;</span>
+        <span>Manassas, VA</span>
+      </div>
+    </header>
+
+    <!-- ===== SUMMARY ===== -->
+    <section class="section">
+      <h2>Summary</h2>
+      <p>
+        Cloud engineer with hands-on experience designing and deploying production
+        infrastructure on AWS. Passionate about infrastructure as code, automation,
+        and building secure, observable systems.
+      </p>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Cloud</h3>
+          <ul>
+            <li>AWS (S3, CloudFront, Lambda, API Gateway, DynamoDB, IAM, Route 53, ACM, WAF, CloudWatch)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>IaC &amp; CI/CD</h3>
+          <ul>
+            <li>Terraform</li>
+            <li>GitHub Actions (OIDC)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li>
+            <li>Bash</li>
+            <li>HTML / CSS / JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Certifications</h3>
+          <ul>
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>IBM Professional Data Science Certificate</li>
+            <!-- Add more certs here -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section">
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Instructor</span>
+          <span class="entry-date">June 2025 &ndash; August 2025</span>
+        </div>
+        <div class="entry-sub">Lindamood-Bell Learning Center &bull; Fairfax, VA</div>
+        <ul>
+          <li>Delivered one-on-one instruction using structured, evidence-based programs, adapting techniques to meet individual cognitive and learning profiles.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Certified Medical Assistant</span>
+          <span class="entry-date">January 2015 &ndash; January 2017</span>
+        </div>
+        <div class="entry-sub">Rosewood ENT (Texas ENT) &bull; Houston, TX</div>
+        <ul>
+          <li>Provided patient care and managed health records, analyzed patient data to identify trends and improve care strategies, leading to a 20% increase in workflow efficiency and patient satisfaction.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Referral Coordinator</span>
+          <span class="entry-date">May 2012 &ndash; January 2015</span>
+        </div>
+        <div class="entry-sub">Pucillo Family Practice &bull; Sugar land, TX</div>
+        <ul>
+          <li>Set up and managed referral database in EMR as office transitioned into eClinicalWorks, increased referral processing time by 80% and significantly reduced resources.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section">
+      <h2>Projects &ndash; Ongoing</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Cloud Resume Challenge</span>
+          <span class="entry-date">2026</span>
+        </div>
+        <div class="entry-sub">
+          <a href="https://github.com/jntph/cloud-resume" target="_blank">github.com/jntph/cloud-resume</a>
+        </div>
+        <ul>
+          <li>Built a serverless resume website on AWS using S3, CloudFront, Lambda, API Gateway, and DynamoDB.</li>
+          <li>Provisioned all infrastructure with Terraform; deployed via GitHub Actions using OIDC (no IAM keys).</li>
+          <li>Secured the stack with WAF managed rules, least-privilege IAM, CloudTrail logging, and AWS Budgets alerts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="section">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Bachelor of Science &bull; Biomedical Engineering</span>
+          <span class="entry-date">2009</span>
+        </div>
+        <div class="entry-sub">Virginia Commonwealth University &bull; Richmond, VA</div>
+      </div>
+    </section>
+
+    <!-- ===== VISITOR COUNTER ===== -->
+    <!-- Wired to API Gateway + Lambda + DynamoDB in Phase 2 -->
+    <footer>
+      <p class="visitor-counter">
+        Visitors: <span id="visitor-count">&#8212;</span>
+      </p>
+    </footer>
+
+  </div><!-- /.page -->
+
+  <script src="counter.js"></script>
+</body>
+</html>
