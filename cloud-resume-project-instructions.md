@@ -71,7 +71,7 @@ Build a production-grade resume website on AWS that proves I can design, deploy,
 
 ## How to update my progress
 When I complete a phase, I'll tell you (e.g. "Phase 1 done") and you should acknowledge it, note any loose ends to watch for in the next phase, and update your mental model of where I am.
-
+Remember that I want to do this project with Github well incorporated along the process.  
 ---
 
 ## Quick reference — critical best practices to always enforce
