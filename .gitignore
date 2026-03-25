@@ -16,6 +16,9 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
+.terraform.lock.hcl
+!*.tfvars.example
+
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf
@@ -45,16 +48,8 @@ venv/
 #IDE
 .vscode/
 .idea/
-# Terraform
-.terraform/
-.terraform.lock.hcl
-*.tfstate
-*.tfstate.backup
-*.tfvars
-!*.tfvars.example
-crash.log
-override.tf
-override.tf.json
+
+
 
 # macOS
 .DS_Store
