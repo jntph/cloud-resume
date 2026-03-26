@@ -1,7 +1,7 @@
 // Visitor counter — wired to API Gateway + Lambda + DynamoDB in Phase 2.
 // Replace API_URL with your API Gateway endpoint once it's deployed.
 
-const API_URL = "https://YOUR_API_ID.execute-api.us-east-1.amazonaws.com/count";
+const API_URL = "https://p3sku2kxtl.execute-api.us-east-1.amazonaws.com/count";
 
 async function updateVisitorCount() {
   const el = document.getElementById("visitor-count");
