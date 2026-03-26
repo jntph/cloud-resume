@@ -7,7 +7,7 @@
 #
 terraform {
   backend "s3" {
-    bucket         = "YOUR_PROJECT_NAME-tfstate"   # <-- replace
+    bucket         = "janna-cloud-resume-tfstate"
     key            = "cloud-resume/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true

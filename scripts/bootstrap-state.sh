@@ -11,7 +11,7 @@
 set -euo pipefail
 
 REGION="us-east-1"
-STATE_BUCKET="YOUR_PROJECT_NAME-tfstate"   # <-- must be globally unique; change this
+STATE_BUCKET="janna-cloud-resume-tfstate"
 LOCK_TABLE="terraform-state-lock"
 
 echo "==> Creating S3 state bucket: $STATE_BUCKET"

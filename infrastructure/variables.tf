@@ -14,3 +14,9 @@ variable "project" {
   type        = string
   default     = "cloud-resume"
 }
+
+variable "web_acl_id" {
+  description = "ARN of the WAF WebACL to attach to CloudFront. Leave empty to detach WAF."
+  type        = string
+  default     = ""
+}

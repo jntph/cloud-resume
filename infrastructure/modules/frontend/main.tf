@@ -67,10 +67,12 @@ resource "aws_acm_certificate_validation" "this" {
 # S3 BUCKET (private — only CloudFront can read it via OAC)
 # ============================================================
 
+locals {
+  bucket_name = var.bucket_name != "" ? var.bucket_name : "${var.project}-website-${data.aws_caller_identity.current.account_id}"
+}
+
 resource "aws_s3_bucket" "website" {
-  # Including the account ID makes the bucket name globally unique without
-  # needing a random suffix you'd have to look up later.
-  bucket = "${var.project}-website-${data.aws_caller_identity.current.account_id}"
+  bucket = local.bucket_name
 }
 
 resource "aws_s3_bucket_versioning" "website" {
@@ -127,12 +129,13 @@ resource "aws_cloudfront_origin_access_control" "this" {
 resource "aws_cloudfront_distribution" "this" {
   enabled             = true
   is_ipv6_enabled     = true
+  http_version        = "http2and3"
   default_root_object = "index.html"
   aliases             = [var.domain_name, "www.${var.domain_name}"]
 
-  # PriceClass_100 = US + Europe POPs only — cheapest option.
-  # Use PriceClass_All once you have real traffic to justify the cost.
-  price_class = "PriceClass_100"
+  # WAF WebACL — managed in Phase 6 Security Hardening.
+  # Preserving the existing auto-created WAF until then.
+  web_acl_id = var.web_acl_id != "" ? var.web_acl_id : null
 
   origin {
     domain_name              = aws_s3_bucket.website.bucket_regional_domain_name

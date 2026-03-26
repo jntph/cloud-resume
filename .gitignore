@@ -16,7 +16,6 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
-.terraform.lock.hcl
 !*.tfvars.example
 
 # Ignore override files as they are usually used to override resources locally and so
