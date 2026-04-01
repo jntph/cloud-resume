@@ -67,6 +67,41 @@ resource "aws_lambda_permission" "apigw" {
   source_arn    = "${aws_apigatewayv2_api.resume_api.execution_arn}/*/*"
 }
 
+# ── CloudWatch ───────────────────────────────────────────────────────────────
+
+resource "aws_cloudwatch_log_group" "lambda" {
+  name              = "/aws/lambda/${aws_lambda_function.counter.function_name}"
+  retention_in_days = 7
+}
+
+resource "aws_cloudwatch_metric_alarm" "lambda_errors" {
+  alarm_name          = "cloud-resume-lambda-errors"
+  namespace           = "AWS/Lambda"
+  metric_name         = "Errors"
+  dimensions          = { FunctionName = aws_lambda_function.counter.function_name }
+  statistic           = "Sum"
+  period              = 60
+  evaluation_periods  = 1
+  threshold           = 1
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  alarm_description   = "Lambda invocation errors"
+  treat_missing_data  = "notBreaching"
+}
+
+resource "aws_cloudwatch_metric_alarm" "api_5xx" {
+  alarm_name          = "cloud-resume-api-5xx"
+  namespace           = "AWS/ApiGateway"
+  metric_name         = "5XXError"
+  dimensions          = { ApiId = aws_apigatewayv2_api.resume_api.id }
+  statistic           = "Sum"
+  period              = 60
+  evaluation_periods  = 1
+  threshold           = 1
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  alarm_description   = "API Gateway 5xx errors"
+  treat_missing_data  = "notBreaching"
+}
+
 # ── GitHub Actions OIDC ───────────────────────────────────────────────────────
 
 resource "aws_iam_openid_connect_provider" "github" {
