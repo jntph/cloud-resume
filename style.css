@@ -86,6 +86,11 @@ header h1 {
   margin-bottom: 1rem;
 }
 
+/* ===== SUMMARY ===== */
+.summary-text {
+  text-align: justify;
+}
+
 /* ===== SKILLS ===== */
 .skills-grid {
   display: grid;
@@ -111,6 +116,11 @@ header h1 {
   font-size: 0.875rem;
   color: #334155;
   margin-bottom: 0.15rem;
+}
+
+.cert-list li {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ===== ENTRIES (experience / projects / education) ===== */
@@ -164,6 +174,51 @@ footer {
 .visitor-counter {
   font-size: 0.8rem;
   color: #94a3b8;
+}
+
+/* ===== INFRASTRUCTURE SNAPSHOTS ===== */
+.snapshot-intro {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.snapshot {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.snapshot a {
+  display: block;
+}
+
+.snapshot img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: opacity 0.15s;
+}
+
+.snapshot a:hover img {
+  opacity: 0.85;
+}
+
+.snapshot figcaption {
+  font-size: 0.775rem;
+  color: #475569;
+  padding: 0.4rem 0.6rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
 }
 
 /* ===== PRINT ===== */

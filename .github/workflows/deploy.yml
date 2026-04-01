@@ -58,7 +58,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Sync S3
-        run: aws s3 sync . s3://janna-cloud --delete --exclude "*" --include "*.html" --include "*.css" --include "*.js"
+        run: aws s3 sync . s3://janna-cloud --delete --exclude "*" --include "*.html" --include "*.css" --include "*.js" --include "screenshots/*.png"
 
       - name: Invalidate CloudFront
         run: |
