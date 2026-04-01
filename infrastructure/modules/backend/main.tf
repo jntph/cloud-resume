@@ -74,6 +74,87 @@ resource "aws_cloudwatch_log_group" "lambda" {
   retention_in_days = 7
 }
 
+resource "aws_cloudwatch_dashboard" "resume" {
+  dashboard_name = "cloud-resume"
+
+  dashboard_body = jsonencode({
+    widgets = [
+      {
+        type   = "metric"
+        x      = 0
+        y      = 0
+        width  = 6
+        height = 6
+        properties = {
+          title       = "Lambda Invocations"
+          region      = "us-east-1"
+          period      = 60
+          stat        = "Sum"
+          view        = "timeSeries"
+          annotations = { horizontal = [] }
+          metrics = [
+            ["AWS/Lambda", "Invocations", "FunctionName", aws_lambda_function.counter.function_name]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 6
+        y      = 0
+        width  = 6
+        height = 6
+        properties = {
+          title       = "Lambda Errors"
+          region      = "us-east-1"
+          period      = 60
+          stat        = "Sum"
+          view        = "timeSeries"
+          annotations = { horizontal = [] }
+          metrics = [
+            ["AWS/Lambda", "Errors", "FunctionName", aws_lambda_function.counter.function_name]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 0
+        y      = 6
+        width  = 6
+        height = 6
+        properties = {
+          title       = "Lambda Duration (ms)"
+          region      = "us-east-1"
+          period      = 60
+          stat        = "Average"
+          view        = "timeSeries"
+          annotations = { horizontal = [] }
+          metrics = [
+            ["AWS/Lambda", "Duration", "FunctionName", aws_lambda_function.counter.function_name]
+          ]
+        }
+      },
+      {
+        type   = "metric"
+        x      = 6
+        y      = 6
+        width  = 6
+        height = 6
+        properties = {
+          title       = "API Gateway 5xx Errors"
+          region      = "us-east-1"
+          period      = 60
+          stat        = "Sum"
+          view        = "timeSeries"
+          annotations = { horizontal = [] }
+          metrics = [
+            ["AWS/ApiGateway", "5XXError", "ApiId", aws_apigatewayv2_api.resume_api.id]
+          ]
+        }
+      }
+    ]
+  })
+}
+
 resource "aws_cloudwatch_metric_alarm" "lambda_errors" {
   alarm_name          = "cloud-resume-lambda-errors"
   namespace           = "AWS/Lambda"
