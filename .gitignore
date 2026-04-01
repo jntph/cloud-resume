@@ -52,3 +52,4 @@ venv/
 
 # macOS
 .DS_Store
+lambda/lambda_function.zip
