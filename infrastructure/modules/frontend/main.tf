@@ -11,11 +11,120 @@ data "aws_route53_zone" "this" {
 # Used to inject the AWS account ID into the bucket name, keeping it globally unique.
 data "aws_caller_identity" "current" {}
 
-# AWS-managed cache policy — optimises hit rate for static files.
+# AWS-managed cache policy — optimizes hit rate for static files.
 data "aws_cloudfront_cache_policy" "caching_optimized" {
   name = "Managed-CachingOptimized"
 }
 
+
+# ============================================================
+# WAF WebACL (us-east-1 — CloudFront requirement)
+# ============================================================
+
+resource "aws_wafv2_web_acl" "cloudfront" {
+  provider    = aws.us_east_1
+  name        = "CreatedByCloudFront-985e48a4"
+  description = "WAF for ${var.project} CloudFront distribution"
+  scope       = "CLOUDFRONT"
+
+  default_action {
+    allow {}
+  }
+
+  rule {
+    name     = "AWS-AWSManagedRulesAmazonIpReputationList"
+    priority = 0
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesAmazonIpReputationList"
+        vendor_name = "AWS"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWS-AWSManagedRulesAmazonIpReputationList"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = "AWS-AWSManagedRulesCommonRuleSet"
+    priority = 1
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesCommonRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWS-AWSManagedRulesCommonRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+    priority = 2
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesKnownBadInputsRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = "RateLimitPerIP"
+    priority = 3
+
+    action {
+      block {}
+    }
+
+    statement {
+      rate_based_statement {
+        limit              = 100
+        aggregate_key_type = "IP"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "${var.project}-rate-limit"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  visibility_config {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "CreatedByCloudFront-985e48a4"
+    sampled_requests_enabled   = true
+  }
+}
 
 # ============================================================
 # ACM CERTIFICATE (us-east-1 — CloudFront requirement)
@@ -133,9 +242,7 @@ resource "aws_cloudfront_distribution" "this" {
   default_root_object = "index.html"
   aliases             = [var.domain_name, "www.${var.domain_name}"]
 
-  # WAF WebACL — managed in Phase 6 Security Hardening.
-  # Preserving the existing auto-created WAF until then.
-  web_acl_id = var.web_acl_id != "" ? var.web_acl_id : null
+  web_acl_id = aws_wafv2_web_acl.cloudfront.arn
 
   origin {
     domain_name              = aws_s3_bucket.website.bucket_regional_domain_name
