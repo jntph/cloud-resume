@@ -118,9 +118,21 @@ header h1 {
   margin-bottom: 0.15rem;
 }
 
+.cert-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .cert-list li {
   display: flex;
   justify-content: space-between;
+}
+
+.cert-list li span:last-child {
+  font-size: 0.8rem;
+  color: #64748b;
+  white-space: nowrap;
 }
 
 /* ===== ENTRIES (experience / projects / education) ===== */
