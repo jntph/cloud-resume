@@ -1,6 +1,6 @@
 # Cloud Resume Challenge
 
-A production-grade serverless resume website on AWS — built to demonstrate that I can design, deploy, secure, and operate real cloud infrastructure, not just pass a certification exam.
+A production-grade serverless resume website on AWS
 
 **Live site:** [jannatp.com](https://jannatp.com)
 
