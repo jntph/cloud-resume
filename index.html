@@ -26,19 +26,51 @@
       </div>
     </header>
 
-    <!-- ===== SUMMARY ===== -->
+    <!-- ===== PROJECTS ===== -->
     <section class="section">
-      <h2>Summary</h2>
-      <p class="summary-text">
-        Aspiring Cloud Engineer with a background in Biomedical Engineering 
-        and experience in healthcare that sharpens communication and technical
-        problem-solving skills. AWS Certified Cloud Practitioner, currently pursuing
-        Solutions Architect Associate certification, with hands-on experience deploying
-        serverless architectures using S3, CloudFront, Lambda, API Gateway, and DynamoDB.
-        Proven track record of translating complex technical and clinical information for
-        diverse audiences, driving measurable workflow improvements, and delivering
-        excellent customer experiences in high-stakes environments.
-      </p>
+      <h2>Projects</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Three-Tier Highly Available Web Application <em>(in progress)</em></span>
+          <span class="entry-date">2026 &ndash; Present</span>
+        </div>
+        <div class="entry-sub">Personal AWS Portfolio Project</div>
+        <ul>
+          <li>Architecting a three-tier highly available web application on AWS using VPC and EC2 Auto Scaling, distributed across multiple Availability Zones and public/private subnets for fault tolerance.</li>
+          <li>Provisioning infrastructure as code with Terraform and scripting operational tasks in Bash, building toward a CI/CD pipeline for automated deployment.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Cloud Resume Challenge</span>
+          <span class="entry-date">2026</span>
+        </div>
+        <div class="entry-sub">
+          <a href="https://github.com/jntph/cloud-resume" target="_blank">github.com/jntph/cloud-resume</a> &bull; live at jannatp.com
+        </div>
+        <ul>
+          <li>Designed and deployed a serverless personal resume site on AWS using S3, CloudFront, Lambda, API Gateway, and DynamoDB, live in production at a custom domain.</li>
+          <li>Provisioned 100% of infrastructure as code with Terraform and automated deployments end-to-end with GitHub Actions using OIDC federation, eliminating long-lived IAM access keys.</li>
+          <li>Hardened the stack with AWS WAF managed rule groups, least-privilege IAM policies, and AWS Budgets cost alerts.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Winning Space Race with Data Science &ndash; IBM Data Science Capstone</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-sub">
+          <a href="https://github.com/jntph/IBM-Data-Science-Capstone-Project" target="_blank">github.com/jntph/IBM-Data-Science-Capstone-Project</a>
+        </div>
+        <ul>
+          <li>Built an automated data pipeline consuming the SpaceX REST API and web-scraping (BeautifulSoup) launch records, normalizing results into a structured Pandas dataframe for analysis.</li>
+          <li>Developed an interactive Plotly Dash dashboard and Folium map to visualize launch site outcomes, payload mass distributions, and success rates.</li>
+          <li>Trained and benchmarked four classification models (Logistic Regression, SVM, Decision Tree, KNN) to predict Falcon 9 first-stage landing outcomes; SVM achieved 80%+ prediction accuracy.</li>
+        </ul>
+      </div>
     </section>
 
     <!-- ===== SKILLS ===== -->
@@ -48,7 +80,7 @@
         <div class="skill-group">
           <h3>Cloud</h3>
           <ul>
-            <li>AWS (S3, CloudFront, Lambda, API Gateway, DynamoDB, IAM, Route 53, ACM, WAF, CloudWatch)</li>
+            <li>AWS (S3, CloudFront, Lambda, API Gateway, DynamoDB, IAM, Route 53, ACM, WAF, CloudWatch, VPC, EC2)</li>
           </ul>
         </div>
         <div class="skill-group">
@@ -69,16 +101,6 @@
       </div>
     </section>
 
-    <!-- ===== CERTIFICATIONS ===== -->
-    <section class="section">
-      <h2>Certifications</h2>
-      <ul class="cert-list">
-        <li><span>AWS Certified Cloud Practitioner</span><span>September 2025 &ndash; September 2028</span></li>
-        <li><span>IBM Professional Data Science Certificate</span><span>November 2024</span></li>
-        <!-- Add more certs here -->
-      </ul>
-    </section>
-
     <!-- ===== EXPERIENCE ===== -->
     <section class="section">
       <h2>Experience</h2>
@@ -90,7 +112,7 @@
         </div>
         <div class="entry-sub">Lindamood-Bell Learning Processes &bull; Fairfax, VA</div>
         <ul>
-          <li>Delivered one-on-one instruction using structured, evidence-based programs, adapting techniques to meet individual cognitive and learning profiles.</li>
+          <li>Delivered one-on-one instruction using structured, evidence-based Lindamood-Bell programs, adapting techniques session-by-session to each student&rsquo;s cognitive and learning profile to accelerate reading and processing gains.</li>
         </ul>
       </div>
 
@@ -101,7 +123,8 @@
         </div>
         <div class="entry-sub">Rosewood ENT (Texas ENT) &bull; Houston, TX</div>
         <ul>
-          <li>Provided patient care and managed health records, analyzed patient data to identify trends and improve care strategies, leading to a 20% increase in workflow efficiency and patient satisfaction.</li>
+          <li>Delivered direct patient care and maintained health records for an ENT practice, analyzing patient and visit data to surface workflow gaps, driving a 20% increase in care-team efficiency and patient satisfaction.</li>
+          <li>Served as a live scribe alongside physicians in fast-paced clinical settings, delivering accurate, real-time documentation under pressure &mdash; a precision and reliability mindset that carries directly into technical and operational work.</li>
         </ul>
       </div>
 
@@ -112,45 +135,21 @@
         </div>
         <div class="entry-sub">Pucillo Family Practice &bull; Sugar land, TX</div>
         <ul>
-          <li>Set up and managed referral database in EMR as office transitioned into eClinicalWorks, increased referral processing time by 80% and significantly reduced resources.</li>
+          <li>Built and managed a new referral tracking database in the eClinicalWorks EMR during the practice&rsquo;s full system migration, cutting referral processing time by 80% and reducing administrative resource overhead.</li>
         </ul>
       </div>
 
     </section>
 
-    <!-- ===== PROJECTS ===== -->
+    <!-- ===== CERTIFICATIONS ===== -->
     <section class="section">
-      <h2>Projects</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Cloud Resume Challenge</span>
-          <span class="entry-date">2026</span>
-        </div>
-        <div class="entry-sub">
-          <a href="https://github.com/jntph/cloud-resume" target="_blank">github.com/jntph/cloud-resume</a>
-        </div>
-        <ul>
-          <li>Built a serverless resume website on AWS using S3, CloudFront, Lambda, API Gateway, and DynamoDB.</li>
-          <li>Provisioned all infrastructure with Terraform; deployed via GitHub Actions using OIDC (no IAM keys).</li>
-          <li>Secured the stack with WAF managed rules, least-privilege IAM, and AWS Budgets alerts.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Winning Space Race with Data Science &ndash; IBM Data Science Capstone</span>
-          <span class="entry-date">2024</span>
-        </div>
-        <div class="entry-sub">
-          <a href="https://github.com/jntph/IBM-Data-Science-Capstone-Project" target="_blank">github.com/jntph/IBM-Data-Science-Capstone-Project</a>
-        </div>
-        <ul>
-          <li>Consumed the SpaceX REST API and performed web scraping (BeautifulSoup) to collect and normalize launch data into a structured Pandas dataframe — demonstrating real-world API integration and data pipeline skills.</li>
-          <li>Built an interactive Plotly Dash web dashboard and Folium map to visualize launch site outcomes, payload mass distributions, and success rates.</li>
-          <li>Trained and evaluated four classification models (Logistic Regression, SVM, Decision Tree, KNN); SVM achieved 80%+ accuracy in predicting Falcon 9 first-stage landing success.</li>
-        </ul>
-      </div>
+      <h2>Certifications</h2>
+      <ul class="cert-list">
+        <li><span>AWS Certified Solutions Architect &ndash; Associate (SAA-C03)</span><span>September 2026 &ndash; September 2029</span></li>
+        <li><span>AWS Certified Cloud Practitioner</span><span>September 2025 &ndash; September 2029</span></li>
+        <li><span>IBM Professional Data Science Certificate</span><span>November 2024</span></li>
+        <!-- Add more certs here -->
+      </ul>
     </section>
 
     <!-- ===== EDUCATION ===== -->
@@ -175,7 +174,7 @@
         </div>
         <div class="entry-sub">City of Ten Thousand Buddhas &bull; Ukiah, CA</div>
         <ul>
-          <li>Participated in a structured leadership and community service program, developing time management, cross-cultural collaboration, and organizational skills within a diverse international community.</li>
+          <li>Completed a 5-year structured leadership and community service program within a diverse, international volunteer community, building time management, cross-cultural collaboration, and organizational skills.</li>
         </ul>
       </div>
     </section>
